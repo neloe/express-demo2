@@ -6,4 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/neat.html', function(req, res, next) {
+  res.render('index', { title: 'CoolTown' });
+});
 module.exports = router;

@@ -1,5 +1,39 @@
 extends layout
 
+include card
+
 block content
   h1= title
   p Welcome to #{title}
+
+  button(onclick="annoyUser()" class='btn btn-success btn-lg') Click me!
+
+  -let empty = []
+  each item in empty 
+    p item 
+  else 
+    p Empty list is empty
+
+  -let x=5
+  p The value of 2*x = #{2*x}
+
+  ol
+    -for(let i=0; i<5; i++)
+      li item #{i}
+
+  -let mylist = ['a','b','c','d']
+  ul
+    each letter in mylist  
+      li= letter
+
+  div.container 
+    .row 
+      .col-sm-3 Hello world!
+      .col-sm-9.col-md-6(style='background-color:blue')
+    .row 
+      +card('https://cdn.arstechnica.net/wp-content/uploads/2021/10/mario-64-stretched-switch-800x450.jpg', 'Title Text', 'Some stuff goes here')
+      +card('https://m.media-amazon.com/images/I/61irQrNjgnL._AC_SY741_.jpg', 'Almost there!', 'No class on Friday')
+  script.
+    function annoyUser() {
+      alert("Hello world!")
+    }
